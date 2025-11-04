@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crypto Futures Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; }
+        .input-group { margin: 10px 0; }
+        label { display: inline-block; width: 150px; }
+        input { width: 200px; padding: 5px; }
+        .result { margin-top: 20px; padding: 15px; background: #f5f5f5; }
+        .status { font-size: 12px; color: #666; margin-top: 10px; }
+        .refresh-controls { margin: 15px 0; }
+        button { margin: 5px; padding: 8px 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Futures Dashboard</h1>
+        
+        <div class="input-group">
+            <label>Position Size (ETH):</label>
+            <input type="number" id="positionSize" value="1">
+        </div>
+        
+        <div class="input-group">
+            <label>Position Price ($):</label>
+            <input type="number" id="positionPrice" value="2900">
+        </div>
+        
+        <div class="input-group">
+            <label>Collateral ($):</label>
+            <input type="number" id="collateral" value="4000000">
+        </div>
+        
+        <div class="refresh-controls">
+            <label>Refresh Interval (seconds):</label>
+            <input type="number" id="refreshInterval" value="60" min="30">
+            <button onclick="startAutoRefresh()">Start Auto-Refresh</button>
+            <button onclick="stopAutoRefresh()">Stop Auto-Refresh</button>
+            <button onclick="manualRefresh()">Refresh Now</button>
+        </div>
+        
+        <div class="result">
+            <div>Current Mark Price: <span id="markPrice">-</span></div>
+            <div>Liquidation Price: <span id="liquidationPrice">-</span></div>
+            <div class="status">
+                Last Updated: <span id="lastUpdated">-</span> | 
+                Next Update: <span id="nextUpdate">-</span> |
+                API Calls: <span id="apiCallCount">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
